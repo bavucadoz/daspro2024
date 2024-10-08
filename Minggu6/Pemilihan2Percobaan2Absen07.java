@@ -2,11 +2,11 @@ import java.util.Scanner;
 public class Pemilihan2Percobaan2Absen07 {
     public static void main(String[] args) {
         Scanner input07 = new Scanner(System.in);
-        int harga;
+        int harga, potongan = 1000;
         int pilihan_menu;
         double total_bayar;
         double diskon;
-        String member;
+        String member, pembayaran;
 
         System.out.println("-------------------------");
         System.out.println("===== MENU KAFE JTI =====");
@@ -20,11 +20,17 @@ public class Pemilihan2Percobaan2Absen07 {
         input07.nextLine();
         System.out.print("Apakah punya member (y/n) ? = ");
         member = input07.nextLine();
+        System.out.print("Metode pembayaran = ");
+        pembayaran = input07.nextLine();
         System.out.println("--------------------------------------");
+        if (pembayaran.equalsIgnoreCase("qris")) {
+            System.out.println("Selamat, Pembayaran metode QRIS anda mendapat potongan 1000!");
+        }else
+            System.out.println("Metode pembayaran terverifikasi!");
 
         if (member.equalsIgnoreCase("y")) { // equalsIgnoreCase untuk membandingkan String
             diskon = 0.10;
-            System.out.println("Besar diskon = 10%");
+            System.out.println("Besar diskon member = 10%");
             if (pilihan_menu == 1) {
                 harga = 14000;
                 System.out.println("Harga ricebowl =" + harga);
@@ -42,7 +48,7 @@ public class Pemilihan2Percobaan2Absen07 {
                 return; // Menghentikan eksekusi lebih lanjut jika pilihan salah
             }
             // Menghitung total bayar setelah diskon
-            total_bayar = (double) harga - (harga*diskon);
+            total_bayar = (double) harga - (harga*diskon) - potongan;
             System.out.println("Total bayar setelah diskon = " + total_bayar);
         }
         else if (member.equalsIgnoreCase("n")) {
@@ -63,6 +69,7 @@ public class Pemilihan2Percobaan2Absen07 {
                 return; 
             }
             //Menghitung total bayar
+            harga = harga - potongan;
             System.out.println("Total bayar = " + harga);
 
         } else {
