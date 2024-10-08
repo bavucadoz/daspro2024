@@ -1,29 +1,24 @@
 import java.util.Scanner;
 public class KategoriUsia {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        String dayName, dayType;
+        Scanner input  = new Scanner(System.in);
 
-        System.out.print("Input day name: ");
-        dayName = sc.nextLine();
+        System.out.print("Masukkan umur : ");
+        int umur = input.nextInt();
 
-        switch (dayName.toLowerCase()) {
-            case "monday":
-            case "tuesday":
-            case "wednesday":
-            case "thursday":
-            case "friday":
-                dayType = "weekday";
-                break;
-            case "saturday":
-            case "sunday":
-                dayType = "weekend";
-                break;
-            default:
-                dayType = "invalid day name";
-        }
-        System.out.println(dayName + " is a " + dayType);
-        sc.close();
+        if (umur<0) {
+            System.out.println("Input tidak valid");
+        }else if (umur>=0 && umur<=12){
+            System.out.println("Kategori Usia dikategorikan sebagai anak-anak");
+        }else if (umur>=13 && umur<=19){
+            System.out.println("Kategori Usia dikategorikan sebagai remaja");
+        }else if (umur>=20 && umur<=64){
+            System.out.println("Kategori Usia dikategorikan sebagai dewasa");
+        }else{
+            System.out.println("Kategori usia dikategorikan sebagai lansia");
         
+        }
+
+        input.close();
     }
 }
