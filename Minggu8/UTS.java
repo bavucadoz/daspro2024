@@ -34,7 +34,9 @@ public class UTS {
                     System.out.println("Pemain menyerang! Nyawa musuh tersisa: " + (seranganPemain-kekuatanPemain));
                     System.out.println("Musuh menyerang! Nyawa pemain tersisa: " + (seranganMusuh-kekuatanMusuh));
                 if ( kritis != "ya" )
-                if (seranganMusuh-kekuatanMusuh <= 0) {
+                    System.out.println("Pemain Kalah");
+
+         if (seranganMusuh-kekuatanMusuh <= 0) {
                     System.out.println("Pemain Kalah !");
          if (nyawaPemain > nyawaMusuh) {
             System.out.println("Pemain Menang !");
