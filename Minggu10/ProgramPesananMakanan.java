@@ -2,24 +2,33 @@ package Minggu10;
 import java.util.Scanner;
 public class ProgramPesananMakanan {
     public static void main(String[] args) {
-        int n;
         Scanner sc = new Scanner(System.in);
-        System.out.print("Jumlah Pesanan :");
-        n = sc.nextInt();
-
-        String[] nama = new String[n];
-        int[] harga = new int[n];
-        int i = 0;
-        int totalBiaya = 0;
-        do {
-            System.out.println("NAma PEanan ke"+i);
-            nama[i]= sc.nextLine();
-            System.out.println("Harga Pesanan ke"+i);
-            harga[i]= sc.nextInt();
-            totalBiaya = totalBiaya+harga[i];
-            i++;
-        }while(i<n);
-
-        sc.close();
+        int jmlOrder,totalBiaya=0;
+        //Order Pesanan
+        System.out.print("Masukkan jumlah Pesanan anda : ");
+        jmlOrder = sc.nextInt();
+        sc.nextLine(); 
+   
+        String [] namaOrderan = new String[jmlOrder];
+        int [] hargaOrder = new int [jmlOrder];
+   
+        for (int i = 0; i < jmlOrder; i++) {
+           System.out.print("Masukkan nama Pesanan ke-" + (i + 1) + ": ");
+           namaOrderan[i] = sc.nextLine();
+   
+           System.out.print("Masukkan harga untuk " + namaOrderan[i] + ": ");
+           hargaOrder[i] = sc.nextInt();
+           sc.nextLine(); 
+        }
+        for (int i = 0; i < jmlOrder; i++) {
+           totalBiaya += hargaOrder[i];
+       }
+       System.out.println();
+       System.out.println("Daftar Pesanan:");
+       for (int i = 0; i < jmlOrder; i++) {
+           System.out.println((i + 1) + ". " + namaOrderan[i] + " = Rp" + hargaOrder[i] + ",-");
+       }
+       System.out.println("Total biaya: Rp" + totalBiaya + ",-");
+       sc.close();
     }
 }
