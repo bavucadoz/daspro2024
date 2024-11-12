@@ -4,7 +4,7 @@ public class BioskopWithScanner07 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int baris, kolom;
-        String nama, next;
+        String nama;
 
         String[][] penonton = new String[4][2];
 
@@ -30,15 +30,29 @@ public class BioskopWithScanner07 {
                     System.out.print("Masukkan kolom: ");
                     kolom = sc.nextInt();
                     sc.nextLine();
-
-                    penonton[baris-1][kolom-1] = nama;
+                    if (baris > 0 && baris <= 4 && kolom > 0 && kolom <=2) {
+                        if (penonton[baris-1][kolom-1] == null)  {
+                            penonton[baris-1][kolom-1] = nama;
+                        } else {
+                            System.out.println("Kursi sudah terisi, silahkan pilih kursi lainnya");
+                        }
+                    } else {
+                        System.out.println("Nomor kursi tidak tersedia");
+                    }
                     break;
 
                 case 2: // Menu 2 : Tampilkan Daftar Penonton
-                    for (int i = 0; i < penonton.length; i++) {
-                    System.out.println("Penonton setiap baris ke-" + (i+1) + ": " + String.join(",", penonton[i]));
+                    System.out.println("Daftar Penonton");
+                    for (int i=0; i<penonton.length; i++) {
+                        for (int j=0; i<penonton[i].length; j++) {
+                            if (penonton[i][j] == null) {
+                                System.out.print(" *** ");
+                            } else {
+                                System.out.print(" " + penonton[i][j] + " ");
+                            }
+                        }
+                        System.out.println();
                     }
-                    break;
                 
                 case 3: //Menu 3 : Exit
                     System.out.println("Terimakasih Sudah Membeli Tiket");
