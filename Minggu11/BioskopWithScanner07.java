@@ -8,25 +8,45 @@ public class BioskopWithScanner07 {
 
         String[][] penonton = new String[4][2];
 
-        //membuat scanner untuk mengisi elemen pada array penonton
+        //Membuat Menu
         while (true) {
-            System.out.print("Masukkan nama: ");
-            nama = sc.nextLine();
-            System.out.print("Masukkan baris: ");
-            baris = sc.nextInt();
-            System.out.print("Masukkan kolom: ");
-            kolom = sc.nextInt();
+            System.out.println();
+            System.out.println("Menu");
+            System.out.println("1. Input Data Penonton");
+            System.out.println("2. Tampilkan Daftar Penonton");
+            System.out.println("3. Exit");
+            System.out.println();
+            System.out.print("Pilih Menu: ");
+            int menu = sc.nextInt();
             sc.nextLine();
+            System.out.println();
 
-            penonton[baris-1][kolom-1] = nama;
+            switch (menu) {
+                case 1: // Menu 1 : Input Data Penonton
+                    System.out.print("Masukkan nama: ");
+                    nama = sc.nextLine();
+                    System.out.print("Masukkan baris: ");
+                    baris = sc.nextInt();
+                    System.out.print("Masukkan kolom: ");
+                    kolom = sc.nextInt();
+                    sc.nextLine();
 
-            System.out.print("Input penonton lainnya? (y/n): ");
-            next = sc.nextLine();
+                    penonton[baris-1][kolom-1] = nama;
+                    break;
 
-            if (next.equalsIgnoreCase("n")) {
-                break;
+                case 2: // Menu 2 : Tampilkan Daftar Penonton
+                    for (int i = 0; i < penonton.length; i++) {
+                    System.out.println("Penonton setiap baris ke-" + (i+1) + ": " + String.join(",", penonton[i]));
+                    }
+                    break;
+                
+                case 3: //Menu 3 : Exit
+                    System.out.println("Terimakasih Sudah Membeli Tiket");
+                    return;
+
+                default:
+                    System.out.println("Menu Invalid");
             }
         }
-        sc.close();
-    }
+    } 
 }
